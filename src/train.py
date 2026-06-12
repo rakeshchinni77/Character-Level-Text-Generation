@@ -1,5 +1,6 @@
 import os
 import argparse
+import math
 import random
 import numpy as np
 import torch
@@ -30,6 +31,26 @@ def get_batch(encoded_text, batch_size, seq_length):
     return x, y
 
 
+def eval_batches(encoded_text, batch_size, seq_length):
+    """Yield sequential evaluation batches from the encoded text."""
+    total_chars = len(encoded_text)
+    max_start = total_chars - seq_length - 1
+    if max_start < 0:
+        return
+
+    start = 0
+    while start <= max_start:
+        end = min(start + batch_size, max_start + 1)
+        x_batch = [encoded_text[i : i + seq_length] for i in range(start, end)]
+        y_batch = [encoded_text[i + 1 : i + seq_length + 1] for i in range(start, end)]
+
+        x = torch.tensor(x_batch, dtype=torch.long)
+        y = torch.tensor(y_batch, dtype=torch.long).view(-1)
+        yield x, y
+
+        start += batch_size
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=["lstm", "transformer"]) 
@@ -39,6 +60,11 @@ def main():
 
     # Load data
     vocab_size, char_to_int, int_to_char, encoded = prepare_data()
+
+    total_chars = len(encoded)
+    train_end = int(total_chars * 0.9)
+    train_encoded = encoded[:train_end]
+    test_encoded = encoded[train_end:]
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -83,7 +109,7 @@ def main():
         for step in range(1, steps_per_epoch + 1):
             model.train()
 
-            x, y = get_batch(encoded, batch_size, seq_length)
+            x, y = get_batch(train_encoded, batch_size, seq_length)
             x = x.to(device)
             y = y.to(device)
 
@@ -127,6 +153,39 @@ def main():
     print(model_path)
     print("\nLoss Saved:")
     print(loss_path)
+
+    # Evaluation on held-out test split
+    # test_encoded is already the last 10% of the encoded dataset
+
+    model.eval()
+    test_losses = []
+    with torch.no_grad():
+        for x_test, y_test in eval_batches(test_encoded, batch_size, seq_length):
+            x_test = x_test.to(device)
+            y_test = y_test.to(device)
+
+            if model_name == "lstm":
+                hidden = model.init_hidden(x_test.size(0))
+                hidden = (hidden[0].to(device), hidden[1].to(device))
+                output, hidden = model(x_test, hidden)
+            else:
+                output = model(x_test)
+
+            test_loss = criterion(output, y_test)
+            test_losses.append(test_loss.item())
+
+    avg_test_loss = sum(test_losses) / len(test_losses) if test_losses else 0.0
+    perplexity = math.exp(avg_test_loss)
+
+    eval_path = os.path.join("saved", f"{model_name}_perplexity.txt")
+    with open(eval_path, "w", encoding="utf-8") as f:
+        f.write(f"{perplexity}\n")
+
+    print("\n## Evaluation Results")
+    if model_name == "lstm":
+        print(f"LSTM Perplexity: {perplexity:.2f}")
+    else:
+        print(f"Transformer Perplexity: {perplexity:.2f}")
 
 
 if __name__ == "__main__":
