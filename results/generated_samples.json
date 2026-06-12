@@ -1,0 +1,30 @@
+{
+  "lstm": {
+    "temperature_0.5": [
+      "To beat of bing with not thee seen the sweind tuth the gand hing the to for the ring the pare:\nWhere the will the congen the sore this with the here bing of and that do here.\n\nSIRIS FINM:\nAnd you so b",
+      "KING:\nWat Rowe wester sake the great hat pare hour me say that lend the with nome sall be of the hing of thou reather in mome in thoth be with the sourst the that the you the sale hath the sere the re"
+    ],
+    "temperature_1.0": [
+      "To be moce voriny to berts. at igirisher she, do the heack erance the wave hmare this I saling\nDoot far sinmen''s uly ring\nAnd sheer\nLes Cumistide the misheire ane given and cond's winpulle,\nIny the c",
+      "KINGY EASn Muring? Cekpawan to be, my vices,\nAnd prien of winst:.\n\nAUSIS:\nGeartwisksher:\nAnce hinl'n:\nMray nosgefuryintrowch and\nMe fboch, ip fo; to biny sindmpan:\nWhen the smast thee will searn the i"
+    ],
+    "temperature_1.5": [
+      "To becca!\nPqribidswures.\nTerintartigh;\nAy rive-t;\nYiscquirgerds: leatiSiwle. Frofver\nSetunk; ath a tamous;ode eil hat of estlo.enog you. yer tlump,\nHowlite,\nDpyRofci.\nRofcna! B ant?\nNlonen esfessd:\nWi",
+      "KINGR-pOUUFA 'GNTFOHRDRNJIUUSTF:\nAollntesw,;.\n: yrouns futreic, wiO thle!T:\nGeinder? eint. I wlattcedyiu Onogh,\n-o Iiting sobae if bevy\nsed,\nhetreann,\nFouech writtut unstudacemone,\nGrlife yule;\n-lenks"
+    ]
+  },
+  "transformer": {
+    "temperature_0.5": [
+      "To be ooooooooooooooooou ooooooooooooooooooooooooooooooootooooooooooooooooooooooooooooooo ooooooo ooooooooooooooooooooooooo ooooooooooooo oooooooooooooooooooooooooooooooooiooooooooooo oooooooooooooooo",
+      "KING RRD:\n\n\n\n\n\n\n\n\n\n\n\n\n\nHABRORONG RO:\n\n\n\n\n\n\n\nBERORO:\n\n\n\n\n\n\n\n\n\nTONG ROLLO:\n\nBO:\n\n\n\n\n\n\n\nWABe ROUROLOLOLLOLOLLOROLORO:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBROROROROMROROMORORO:\n\n\n\n\nOROMOROROROROLUSTOROROROROROROROR"
+    ],
+    "temperature_1.0": [
+      "To be e outata'tooutrtouctout teto t at atoouyy tau co ye, but tt stat toratfuoutut otoyo tot,\nToutalat t!-t:\nToutt tute t ootuate, t pthatoua n, ots t at! otu ato etyoutoptat teth:\nTout'soyozto yo\nTo",
+      "KING mpy m.\nNP ING t RI: te: INIININW mu, T:\n\n\n\n\nG m;\n\nNG bonouticyousmeyou II\nCONo, ING II\n\nTIO:' IIININUCN toofou ous.\nF IUKRe t, INUTEd EKENIN:\nERDMyavasougan INoyous ysousoofe, IET:\nNG y, oe ous,\n"
+    ],
+    "temperature_1.5": [
+      "To be sssesyms?vicle:, nesswye c! receStuteeiseeieer;prs is asesovetes! nedsug hin;UKeis O: yeenstralie d. s\n\nFr\n\ng y dsd, tove be?\n\nPanencu,, Winksanet,\n\n; , sousmze:\nD:\n!\nI ls\nMO bllNy!\nScoe! ak th ",
+      "KING EY'RKafo$jeck--\nCl ABENRy WARYRANRFANCUGUKE3le FiLa lat;\n\n\nFilave;'AR-chyoula.\nFy K: My, LY on.\nPal Hbaik'wimpriiravir.ivp.\n; HAFwithaiimpiulyo warit, wah MABARINUTUKEilk'd. plyevegp, mpucghe D M"
+    ]
+  }
+}
