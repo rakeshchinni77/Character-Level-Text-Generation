@@ -276,7 +276,7 @@ Character-Level-Text-Generation/
 #### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/Character-Level-Text-Generation.git
+git clone https://github.com/rakeshchinni77/Character-Level-Text-Generation.git
 cd Character-Level-Text-Generation
 ```
 
@@ -318,7 +318,7 @@ This script downloads the Tiny Shakespeare dataset, encodes it character-by-char
 
 ## Quick Start
 
-git clone https://github.com/yourusername/Character-Level-Text-Generation.git
+git clone https://github.com/rakeshchinni77/Character-Level-Text-Generation.git
 
 cd Character-Level-Text-Generation
 
