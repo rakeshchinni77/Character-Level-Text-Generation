@@ -14,26 +14,12 @@ def main():
 
     total_chars = len(encoded)
 
-    # Create input-target sequences: X[i]=encoded[i:i+SEQ_LENGTH],
-    # y[i]=encoded[i+1:i+SEQ_LENGTH+1]
+    # Compute sequence counts without allocating large lists
     seq_length = SEQ_LENGTH
     total_sequences = max(0, total_chars - seq_length)
 
-    X = []
-    y = []
-    for i in range(total_sequences):
-        X.append(encoded[i : i + seq_length])
-        y.append(encoded[i + 1 : i + seq_length + 1])
-
-    # Perform 90% train / 10% test split on sequences
-    train_cutoff = int(total_sequences * 0.9)
-    X_train = X[:train_cutoff]
-    y_train = y[:train_cutoff]
-    X_test = X[train_cutoff:]
-    y_test = y[train_cutoff:]
-
-    train_samples = len(X_train)
-    test_samples = len(X_test)
+    train_samples = int(total_sequences * 0.9)
+    test_samples = total_sequences - train_samples
 
     # Ensure saved dir exists
     os.makedirs(SAVED_DIR, exist_ok=True)
