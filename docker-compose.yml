@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: char-gen-app
+    working_dir: /app
+    env_file: .env
+    volumes:
+      - ./input:/app/input
+      - ./results:/app/results
+      - ./models:/app/models
+      - ./saved:/app/saved
+    stdin_open: true
+    tty: true
